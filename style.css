@@ -52,15 +52,28 @@ body {
 }
 
 #bgleft:hover {
-    flex-grow: 1.8;
-    transform: scale(1.15);
+    flex-grow: 1.5;
+    transform: scale(1.05);
     opacity: 1;
 }
 
 #bgright:hover {
-    flex-grow: 1.8;
+    flex-grow: 1.5;
     transform: scale(1.05);
     opacity: 1;
+}
+#contact{
+    width: 500px;
+    color: white;
+    position: absolute;
+    text-align: center;
+    margin: -250px;
+    left: 48.5%;
+    bottom: 30%;
+    transition-delay: 2s;
+    transition: 2000ms;
+    opacity: 0.7;
+    transform: translateY(0%);
 }
 
 #head {
@@ -69,7 +82,7 @@ body {
     position: absolute;
     text-align: center;
     margin: -250px;
-    left: 50%;
+    left: 48.5%;
     top: 30%;
     transition: 2000ms;
     transition-delay: 2s;
@@ -78,6 +91,56 @@ body {
 #head p {
     animation: Pulse 1.3s ease 1.3s 1 normal forwards;
 }
+#menu{
+    position: absolute;
+    right: 0;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#menu div p{
+    margin-top: 7%;
+}
+#menuicon{
+    position: relative;
+    width: 2em;
+    height: 2em;
+    opacity: 0.6;
+    background-color: white;
+    right: 0%;
+    border-radius: 10px 0px 0px 10px;
+    overflow: hidden;
+    transition: 500ms;
+}
+
+#menuicon p{
+    margin-left:7% ;
+    color: rgb(0, 0, 0);
+    text-shadow:none;
+opacity: 0;}
+#menu :hover div,#menuicon:hover{
+    height: 9em !important;
+    width: 7em !important;
+}
+#menu :hover div p,#menuicon:hover p{
+    opacity: 1;
+}
+#menuicon h1{
+    opacity: 1;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    left: 20%;
+    font-size: 35px;
+    bottom: -15%;
+    opacity: 1;
+    transition: 200ms;
+}
+#menu :hover h1 {
+    opacity: 0;
+}
+
+
 
 .arrows p {
     font-size: 1.5em;
@@ -321,6 +384,15 @@ img {
 .logoentry{
     animation: SlideDown 1.3s ease 0s 1 normal forwards;
 }
+.contactentry{
+    animation: SlideUp 1.3s ease 0s 1 normal forwards;
+}
+.contactexit{
+    transition-delay: 2s !important;
+    transform: translateY(-200%) !important;
+    opacity: 0 !important;
+}
+
 
 @media screen and (min-width: 1500px) {
 
@@ -408,6 +480,16 @@ img {
     0%,
     60%{
         transform:translateY(-160%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+@keyframes SlideUp {
+    0%,
+    60%{
+        transform:translateY(160%);
     }
 
     100% {
