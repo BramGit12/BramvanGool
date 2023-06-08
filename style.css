@@ -1,0 +1,438 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+p,
+h2,
+.card h1,
+img {
+    text-shadow: 4px 3px 0 #0000009a;
+}
+
+body {
+    background-color: black;
+    /* overflow: hidden; */
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: sticky;
+}
+
+.smallcontainer {
+    flex-grow: 1;
+    height: 100dvh;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    position: sticky;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#bgright {
+    background: linear-gradient(180deg, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0) 24%),
+        linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%),
+        linear-gradient(90deg, rgb(0, 0, 0) 8%, rgba(255, 255, 255, 0) 50%),
+        url('assets/computer-program-coding-screen.jpg');
+    transition: 2000ms;
+}
+
+#bgleft {
+    background: linear-gradient(rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0) 24%),
+        linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%),
+        linear-gradient(270deg, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0) 24%),
+        url('assets/IMG_0293.jpeg') -270px;
+    transition: 2500ms;
+
+}
+
+#bgleft:hover {
+    flex-grow: 1.8;
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+#bgright:hover {
+    flex-grow: 1.8;
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+#head {
+    width: 500px;
+    color: white;
+    position: absolute;
+    text-align: center;
+    margin: -250px;
+    left: 50%;
+    top: 30%;
+    transition: 2000ms;
+    transition-delay: 2s;
+}
+
+#head p {
+    animation: Pulse 1.3s ease 1.3s 1 normal forwards;
+}
+
+.arrows p {
+    font-size: 1.5em;
+}
+
+#arrowdown,
+#arrowup {
+    text-align: center;
+    position: absolute;
+    right: 50%;
+    opacity: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    word-spacing: 0;
+}
+#arrowdown :nth-child(1),
+#arrowup :nth-child(2){
+    font-size: 1em;
+}
+
+#arrowup {
+    top: 3%;
+}
+
+#arrowdown {
+    bottom: 2%;
+}
+
+
+#bgleft:hover #musiccard {
+    display: inline;
+    animation: Fade 1s ease 0s 1 normal forwards;
+}
+
+#bgright:hover #codingcard {
+    display: inline;
+    animation: Fade 1s ease 0s 1 normal forwards;
+}
+
+.homecard {
+    background-color: rgba(112, 1, 107, 0.918);
+    border-radius: 10px;
+    position: fixed;
+    width: 20vw;
+    transition: 2000ms;
+    top: 65%;
+    padding: 1em;
+    opacity: 0;
+    display: inline;
+}
+
+.homecard p {
+    margin: 1%;
+}
+
+#musiccard {
+    left: 20%;
+}
+
+#codingcard {
+    right: 20%;
+}
+
+.continue {
+    position: fixed;
+    transition: 2000ms;
+    top: 55%;
+    opacity: 0;
+}
+
+.continue h3 {
+    color: #ffffffdc;
+    text-shadow: -1px 4px 5px #000000,
+        0 -4px 13px #000000,
+        5px 5px 5px #000000,
+        -2px 7px 14px #000000;
+}
+
+#bgleft .continue {
+    left: 13%;
+}
+
+#bgleft:hover .continue {
+    display: inline;
+    animation: FadeBounce 4s ease 0s 1 normal forwards;
+}
+
+#bgright .continue {
+    right: 13%;
+}
+
+#bgright:hover .continue {
+    display: inline;
+    animation: FadeBounce 4s ease 0s 1 normal forwards;
+}
+
+#content {
+    color: #ffffff;
+    margin: unset;
+}
+
+.card {
+    background-color: rgba(59, 0, 56, 0.918);
+    border-radius: 10px;
+    position: fixed;
+    height: 80%;
+    width: 70%;
+    transition: 2000ms;
+    transition-delay: 2s;
+    margin-left: 15%;
+    border: 1px solid #ffffffa1;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.card div {
+    margin: 2%;
+    display: flex;
+    max-height: 100%;
+    margin-top: 1%;
+}
+.card div div{
+    flex-direction: column;
+    width: 100%;
+}
+#content :nth-child(2) div,#content :nth-child(6) div{
+    flex-direction: column;
+}
+#content :nth-child(2) div p,#content :nth-child(2) div h1 {
+    text-align: center;
+}
+#content :nth-child(4) div h1 {
+    text-align: center;
+    margin-top: 1%;
+}
+#content :nth-child(4) div p {
+    margin: 2.5%;
+    margin-left: 0;
+    text-align: start;
+}
+#content :nth-child(4) div {
+    min-width: 60%;
+}
+.card div h1 {
+    border-bottom: 1px solid #ffffff;
+    max-width: 100%;
+    text-align: start;
+}
+
+.card div p {
+    text-align: start;
+    margin: 3%;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    margin: 1%;
+}
+
+
+p {
+    font-size: 22px;
+}
+
+img {
+    border-radius: 10px ; 
+    max-height: 100%;
+    /* max-width: 40%; */
+    margin: 1%;
+    justify-self: center;
+}
+#content :nth-child(2) div img,#content :nth-child(6) div img{
+    max-height: 65%;
+}
+
+.unselected {
+    flex-grow: 0;
+}
+
+.selected {
+    flex-grow: 10;
+}
+
+.scroll {
+    overflow: unset;
+}
+
+.nohover {
+    pointer-events: none;
+}
+
+.firstmoveup {
+    transform: translateY(-112%);
+}
+
+.moveup {
+    transition-delay: 0.2s;
+    transform: translateY(-112%);
+}
+
+.moveoutup {
+    transition-delay: 0.2s;
+    transform: translateY(-400%);
+}
+
+.movedown {
+    transition-delay: 0s;
+    transition: 0;
+    transform: translateY(-400%);
+    transition: 2000ms;
+    transition-delay: 0.2s;
+    transform: translateY(-110%);
+}
+
+.moveoutdown {
+    transition-delay: 0.2s;
+    transform: translateY(0);
+}
+
+.fadeout {
+    animation: FadeOut 2s ease 0s 1 normal forwards;
+    opacity: 0;
+    /* display: none !important; */
+}
+
+.fadein {
+    opacity: 1;
+    animation: Fade 1s ease 4s 1 normal forwards;
+}
+.fadeinarrow{
+    opacity: 0.6;
+    animation: FadeArrow 1s ease 4s 1 normal forwards;
+}
+
+.logoentry{
+    animation: SlideDown 1.3s ease 0s 1 normal forwards;
+}
+
+@media screen and (min-width: 1500px) {
+
+    #bgleft {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
+            linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg') -50px;
+    }
+}
+
+@media screen and (min-width: 1250px) and (max-width:1499px) {
+    #bgleft {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
+            linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg') -150px;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1249px) {
+    #bgleft {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
+            linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg') -250px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 999px) {
+    #bgleft {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
+            linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg') -350px;
+
+    }
+}
+
+@media screen and (max-width: 480px) and (max-width: 479px) {
+    .smallcontainer {
+        flex-basis: 100%;
+        flex-wrap: 1;
+        height: 50dvh;
+    }
+
+    #bgleft {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
+            linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg')30%;
+    }
+}
+
+@keyframes Fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes FadeArrow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes Pulse {
+    0% {
+        font-size: 22px;
+    }
+
+    35% {
+        font-size: 24px;
+    }
+}
+
+@keyframes SlideDown {
+    0%,
+    60%{
+        transform:translateY(-160%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes FadeBounce {
+    0% {
+        opacity: 0;
+    }
+
+    20%,40% {
+        opacity: 1;
+    }
+    70% {
+        font-size: 20px;
+    }
+
+    80% {
+        font-size: 20.8px;
+    }
+    100%
+    {
+        font-size: 20px;
+        opacity: 1;
+    }
+}
