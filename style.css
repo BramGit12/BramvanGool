@@ -292,7 +292,7 @@ body {
 }
 
 #content :nth-child(2) div p,
-#content :nth-child(2) div h1 {
+#content :nth-child(2) div h1,#content :nth-child(6) div h1,#content :nth-child(6) div p {
     text-align: center;
 }
 
@@ -421,7 +421,6 @@ img {
     transform: translateY(-200%) !important;
     opacity: 0 !important;
 }
-
 
 @media screen and (min-width: 1500px) {
 

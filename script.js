@@ -64,8 +64,7 @@ function NextCard() {
                 i++;
                 break;
             case 4:
-                NextAnimation("card4", "card5")
-                i++;
+                SendHome();
                 break;
             default:
                 break;
@@ -86,8 +85,7 @@ function NextCard() {
                 i++;
                 break;
             case 4:
-                NextAnimation("card4", "card5")
-                i++;
+                SendHome();
                 break;
             default:
                 break;
@@ -151,7 +149,7 @@ function PreviousCard() {
                 i--;
                 break;
             case 3:
-                PreviousAnimation("codingcard3", "codingcard1")
+                PreviousAnimation("codingcard3", "codingcard2")
                 i--;
                 break;
             case 4:
@@ -163,7 +161,6 @@ function PreviousCard() {
         }
     }
 }
-
 function NextAnimation(oldcard, newcard) {
     document.getElementById(oldcard).classList = "card"
     document.getElementById(newcard).classList = "card"
@@ -183,7 +180,7 @@ document.addEventListener("wheel", function (e) {
     lastKnownScrollPosition = e.deltaY;
     if (selected == null) { return; }
     if (scrolling == true) { return; }
-    if (lastKnownScrollPosition > 0) {
+    if (lastKnownScrollPosition > 0 ){
         NextCard();
         scrolling = true;
         setTimeout(ScrollFalse, 1800);
@@ -197,6 +194,40 @@ document.addEventListener("wheel", function (e) {
 
 function ScrollFalse() {
     scrolling = false;
+}
+
+function Redirect(destination) {
+    if (destination == 'music') {
+        SendHome();
+        selected = destination;
+        i = 1;
+        ClickLeft();
+    }
+    else if (destination == 'coding') {
+        SendHome();
+        selected = destination;
+        i = 1;
+        ClickRight();
+
+    }
+    else if (destination == 'home') {
+        SendHome();
+    }
+    else if (destination == 'contact') {
+        if (selected == null) {
+            ClickLeft();
+        }
+        for (let index = i; index < 4; index++) {
+            NextCard();
+        }
+    }
+}
+function SendHome() {
+    if (selected != null) {
+        for (let index = i; index > 0; index--) {
+            PreviousCard();
+        }
+    }
 }
 
 // function Expand(){
