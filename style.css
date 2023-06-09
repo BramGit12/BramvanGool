@@ -280,12 +280,13 @@ body {
     display: flex;
     max-height: 100%;
     margin-top: 1%;
-    max-width: 90%;
+    flex-basis: 100%;
 }
 
 .card div div {
     flex-direction: column;
     width: 100%;
+    margin-bottom: 0;
 }
 
 #content :nth-child(2) div,
@@ -316,12 +317,16 @@ body {
 .card div h1 {
     border-bottom: 1px solid #ffffff;
     max-width: 100%;
+    margin: auto;
     text-align: start;
+    margin-top: 1%;
+    width: 100%;
 }
 
 .card div p {
     text-align: start;
-    margin: 3%;
+    width: 100%;
+    margin: auto;
 }
 
 h1 {
@@ -340,9 +345,11 @@ p {
 img {
     border-radius: 10px;
     max-height: 100%;
-    /* max-width: 40%; */
-    margin: 1%;
+    margin: auto;
     justify-self: center;
+    max-width: max-content;
+    padding: 1%;
+    justify-self: end;
 }
 
 #content :nth-child(2) div img,
