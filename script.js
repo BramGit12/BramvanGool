@@ -30,6 +30,8 @@ function ClickLeft() {
     document.getElementById("arrowup").classList.add("fadeinarrow");
     // document.getElementById("contact").classList = "contactexit";
     document.getElementById("arrowdown").classList.add("fadeinarrow");
+    scrolling = true;
+    setTimeout(ScrollFalse, 3000);
 }
 function ClickRight() {
     selected = "coding";
@@ -46,6 +48,8 @@ function ClickRight() {
     document.getElementById("arrowup").classList.add("fadeinarrow");
     // document.getElementById("contact").classList = "contactexit";
     document.getElementById("arrowdown").classList.add("fadeinarrow");
+    scrolling = true;
+    setTimeout(ScrollFalse, 3000);
 }
 let i = 1;
 function NextCard() {
@@ -180,48 +184,64 @@ document.addEventListener("wheel", function (e) {
     lastKnownScrollPosition = e.deltaY;
     if (selected == null) { return; }
     if (scrolling == true) { return; }
-    if (lastKnownScrollPosition > 0 ){
-        NextCard();
-        scrolling = true;
-        setTimeout(ScrollFalse, 1800);
+    if (lastKnownScrollPosition > 0) {
+        NextClick();
         return;
     }
-    PreviousCard();
-    scrolling = true;
-    setTimeout(ScrollFalse, 1800);
+    BackClick();
     return;
 })
 
 function ScrollFalse() {
     scrolling = false;
+    // alert(scrolling);
 }
 
-function Redirect(destination) {
-    if (destination == 'music') {
-        SendHome();
-        selected = destination;
-        i = 1;
-        ClickLeft();
+function NextClick() {
+    if (scrolling == false) {
+        scrolling = true;
+        setTimeout(ScrollFalse, 1800);
+        NextCard();
     }
-    else if (destination == 'coding') {
-        SendHome();
-        selected = destination;
-        i = 1;
-        ClickRight();
+}
 
+function BackClick() {
+    if (scrolling == false) {
+        scrolling = true;
+        setTimeout(ScrollFalse, 1800);
+        PreviousCard();
     }
-    else if (destination == 'home') {
-        SendHome();
-    }
-    else if (destination == 'contact') {
-        if (selected == null) {
+}
+function Redirect(destination) {
+    if (scrolling == false) {
+        scrolling = true;
+        setTimeout(ScrollFalse, 1800);
+        if (destination == 'music') {
+            SendHome();
+            selected = destination;
+            i = 1;
             ClickLeft();
         }
-        for (let index = i; index < 4; index++) {
-            NextCard();
+        else if (destination == 'coding') {
+            SendHome();
+            selected = destination;
+            i = 1;
+            ClickRight();
+        }
+        else if (destination == 'home') {
+            SendHome();
+        }
+        else if (destination == 'contact') {
+            if (selected == null) {
+                ClickLeft();
+            }
+            for (let index = i; index < 4; index++) {
+                NextCard();
+            }
         }
     }
 }
+
 function SendHome() {
     if (selected != null) {
         for (let index = i; index > 0; index--) {
