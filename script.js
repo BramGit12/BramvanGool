@@ -110,8 +110,8 @@ function PreviousCard() {
                 document.getElementById("codingcard").classList = "homecard";
                 document.getElementById("continueleft").classList = "continue";
                 document.getElementById("continueright").classList = "continue";
-                document.getElementById("arrowup").classList = "";
-                document.getElementById("arrowdown").classList = "";
+                document.getElementById("arrowup").classList = "arrows";
+                document.getElementById("arrowdown").classList = "arrows";
                 selected = null;
                 i = 1;
                 break;
@@ -143,8 +143,8 @@ function PreviousCard() {
                 document.getElementById("codingcard").classList = "homecard";
                 document.getElementById("continueleft").classList = "continue";
                 document.getElementById("continueright").classList = "continue";
-                document.getElementById("arrowup").classList = "";
-                document.getElementById("arrowdown").classList = "";
+                document.getElementById("arrowup").classList = "arrows";
+                document.getElementById("arrowdown").classList = "arrows";
                 selected = null;
                 i = 1;
                 break;
