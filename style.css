@@ -1,9 +1,8 @@
 * {
     padding: 0px;
     margin: 0px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Libre Baskerville', serif;
     color: white;
-    overflow: hidden;
 }
 html{
     overflow: hidden;
@@ -76,16 +75,16 @@ body {
     text-align: center;
     transition: 2000ms;
     transition-delay: 2s;
-    margin-top: 0.7%;
+    align-self: center;
+    transform: translateY(-2dvh);
 }
-
 #head p {
     animation: Pulse 1.3s ease 1.3s 1 normal forwards;
 }
 
 #menu {
     position: absolute;
-    top: 0%;
+    top: 10dvh;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -100,17 +99,20 @@ body {
 
 #menuicon {
     position: relative;
-    width: 2em;
-    height: 2em;
+    width: 3em;
+    height: 3em;
     background-color: rgba(0, 0, 0);
     right: 0%;
     border-radius: 10px 0px 0px 10px;
     overflow: hidden;
-    border-left:  1px solid rgb(177, 1, 168);
-    border-top:  1px solid rgb(177, 1, 168);
-    border-bottom:  1px solid rgb(177, 1, 168);
+    border-left:  2px solid rgb(177, 1, 168);
+    border-top:  2px solid rgb(177, 1, 168);
+    border-bottom:  2px solid rgb(177, 1, 168);
     transition: 500ms;
     pointer-events:all;
+    display: flex;
+    gap: 10%;
+    flex-direction: column;
 }
 
 #menuicon p {
@@ -118,7 +120,9 @@ body {
     text-shadow: none;
     opacity: 0;
     cursor: pointer;
-    margin: auto;
+    padding: 10%;
+    margin-right: auto;
+    pointer-events: none;
 }
 
 #menuicon p:hover{
@@ -126,28 +130,30 @@ body {
     font-weight: 600;
 }
 
-#menu :hover div,
-#menuicon:hover {
-    height: 7em !important;
+.open {
+    height: fit-content !important;
     width: 7em !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
 }
 
-#menu :hover div p,
-#menuicon:hover p {
-    opacity: 1;
+.open p {
+    pointer-events: all !important;
+    opacity: 1 !important;
 }
 
 #menuicon span {
     position: absolute;
     color: white;
     left: 5%;
-    font-size: 2em;
+    font-size: 3em;
     opacity: 1;
     transition: 200ms;
+    pointer-events: none;
 }
 
-#menu :hover span {
-    opacity: 0;
+.open span {
+    opacity: 0 !important;
 }
 
 .arrows p {
@@ -234,13 +240,15 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100dvh;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0.877);
     border-radius: 10px;
     position:fixed;
-    height: 80%;
+    height: 97%;
     width: 97%;
     max-width: 1500px;
     transition: 2000ms;
@@ -250,7 +258,7 @@ body {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin: 1%;
+    margin: auto;
 }
 
 .card div {
@@ -290,7 +298,7 @@ body {
 }
 
 #content :nth-child(4) div p {
-    margin: 2.5%;
+    margin: auto;
     margin-left: 0;
     text-align: start;
 }
@@ -307,7 +315,7 @@ body {
     margin-top: 1%;
     margin-bottom: 1%;
     width: 100%;
-    color: rgb(177, 1, 168);
+    color: rgb(255, 255, 255);
 }
 
 .card div p {
@@ -362,26 +370,27 @@ img {
 }
 
 .firstmoveup {
-    transform: translateY(-112%);
+    transform: translateY(-100dvh);
 }
 
 .moveup {
     transition-delay: 0.2s;
-    transform: translateY(-112%);
+    transform: translateY(-100dvh);
 }
 
 .moveoutup {
     transition-delay: 0.2s;
-    transform: translateY(-400%);
+    transform: translateY(-300dvh);
+    opacity: 0;
 }
 
 .movedown {
     transition-delay: 0s;
     transition: 0;
-    transform: translateY(-400%);
+    transform: translateY(-300dvh);
     transition: 2000ms;
     transition-delay: 0.2s;
-    transform: translateY(-110%);
+    transform: translateY(-100dvh);
 }
 
 .moveoutdown {
@@ -403,10 +412,6 @@ img {
 .fadeinarrow {
     opacity: 0.6;
     animation: FadeArrow 1s ease 4s 1 normal forwards;
-}
-
-.logoentry {
-    animation: SlideDown 1.3s ease 0s 1 normal forwards;
 }
 
 .contactentry {
@@ -494,8 +499,11 @@ img {
     .homecard, .continue{
     display: inline;
     }
-    .img{
+    img{
+        height: fit-content;
         max-height: 100%;
+    max-width: 40%;
+    width: max-content;
     }
     .deskimg{
         display: flex;
@@ -511,6 +519,17 @@ img {
     .selected {
         flex-grow: 10;
         opacity: 1;
+    }
+    #head{
+    margin-top: 0.7%;
+    align-self: unset;
+    transform: translateY(0);
+    }
+    .logoentry {
+        animation: SlideDown 1.3s ease 0s 1 normal forwards;
+    }
+    .card{
+        height: 85%
     }
 }
 

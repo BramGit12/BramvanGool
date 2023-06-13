@@ -250,13 +250,15 @@ function SendHome() {
     }
 }
 
-// function Expand(){
-//     if (document.getElementById("menubox").classList == "expand") {
-//     document.getElementById("menubox").classList ="";
-//     document.getElementById("menuicon").classList ="";
-//     return;
-//     }
-//     document.getElementById("menubox").classList.add("expand");
-//     document.getElementById("menuicon").classList.add("expand");
-//     return;
-// }
+function Expand(){
+    if (document.getElementById("menuicon").classList == "open") {
+    document.getElementById("menuicon").classList ="";
+    return;
+    }
+    document.getElementById("menuicon").classList.add("open");
+    return;
+}
+
+function Collapse() {
+    document.getElementById("menuicon").classList ="";
+}
