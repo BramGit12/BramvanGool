@@ -213,6 +213,7 @@ function BackClick() {
     }
 }
 function Redirect(destination) {
+    setTimeout(Collapse,200)
     if (scrolling == false) {
         scrolling = true;
         setTimeout(ScrollFalse, 1800);
@@ -241,7 +242,7 @@ function Redirect(destination) {
         }
     }
 }
-
+let items =document.getElementsByClassName("card");
 function SendHome() {
     if (selected != null) {
         for (let index = i; index > 0; index--) {

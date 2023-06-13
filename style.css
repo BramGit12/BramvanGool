@@ -84,7 +84,7 @@ body {
 
 #menu {
     position: absolute;
-    top: 10dvh;
+    top: 60dvh;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -530,6 +530,9 @@ img {
     }
     .card{
         height: 85%
+    }
+    #menu{
+        top:15dvh;
     }
 }
 
