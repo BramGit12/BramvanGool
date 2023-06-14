@@ -15,9 +15,10 @@ function RemoveClass() {
 
 let selected = null;
 let scrolling = false;
+let currentcard = null;
 function ClickLeft() {
     selected = "music";
-    document.getElementById("musiccard1").classList = "card"
+    document.getElementById("musiccard1").classList = "card";
     document.getElementById("bgright").classList.add("unselected");
     document.getElementById("bgleft").classList.add("selected");
     document.getElementById("bgright").classList.add("nohover");
@@ -30,12 +31,13 @@ function ClickLeft() {
     document.getElementById("arrowup").classList.add("fadeinarrow");
     // document.getElementById("contact").classList = "contactexit";
     document.getElementById("arrowdown").classList.add("fadeinarrow");
+    currentcard = "musiccard1";
     scrolling = true;
     setTimeout(ScrollFalse, 3000);
 }
 function ClickRight() {
     selected = "coding";
-    document.getElementById("codingcard1").classList = "card"
+    document.getElementById("codingcard1").classList = "card";
     document.getElementById("bgleft").classList.add("unselected");
     document.getElementById("bgright").classList.add("selected");
     document.getElementById("bgright").classList.add("nohover");
@@ -49,6 +51,7 @@ function ClickRight() {
     // document.getElementById("contact").classList = "contactexit";
     document.getElementById("arrowdown").classList.add("fadeinarrow");
     scrolling = true;
+    currentcard = "codingcard1";
     setTimeout(ScrollFalse, 3000);
 }
 let i = 1;
@@ -56,15 +59,15 @@ function NextCard() {
     if (selected == "music") {
         switch (i) {
             case 1:
-                NextAnimation("musiccard1", "musiccard2")
+                NextAnimation("musiccard1", "musiccard2");
                 i++;
                 break;
             case 2:
-                NextAnimation("musiccard2", "musiccard3")
+                NextAnimation("musiccard2", "musiccard3");
                 i++;
                 break;
             case 3:
-                NextAnimation("musiccard3", "card4")
+                NextAnimation("musiccard3", "card4");
                 i++;
                 break;
             case 4:
@@ -77,15 +80,15 @@ function NextCard() {
     else {
         switch (i) {
             case 1:
-                NextAnimation("codingcard1", "codingcard2")
+                NextAnimation("codingcard1", "codingcard2");
                 i++;
                 break;
             case 2:
-                NextAnimation("codingcard2", "codingcard3")
+                NextAnimation("codingcard2", "codingcard3");
                 i++;
                 break;
             case 3:
-                NextAnimation("codingcard3", "card4")
+                NextAnimation("codingcard3", "card4");
                 i++;
                 break;
             case 4:
@@ -116,15 +119,15 @@ function PreviousCard() {
                 i = 1;
                 break;
             case 2:
-                PreviousAnimation("musiccard2", "musiccard1")
+                PreviousAnimation("musiccard2", "musiccard1");
                 i--;
                 break;
             case 3:
-                PreviousAnimation("musiccard3", "musiccard2")
+                PreviousAnimation("musiccard3", "musiccard2");
                 i--;
                 break;
             case 4:
-                PreviousAnimation("card4", "musiccard3")
+                PreviousAnimation("card4", "musiccard3");
                 i--;
                 break;
             default:
@@ -149,15 +152,15 @@ function PreviousCard() {
                 i = 1;
                 break;
             case 2:
-                PreviousAnimation("codingcard2", "codingcard1")
+                PreviousAnimation("codingcard2", "codingcard1");
                 i--;
                 break;
             case 3:
-                PreviousAnimation("codingcard3", "codingcard2")
+                PreviousAnimation("codingcard3", "codingcard2");
                 i--;
                 break;
             case 4:
-                PreviousAnimation("card4", "codingcard3")
+                PreviousAnimation("card4", "codingcard3");
                 i--;
                 break;
             default:
@@ -170,6 +173,7 @@ function NextAnimation(oldcard, newcard) {
     document.getElementById(newcard).classList = "card"
     document.getElementById(oldcard).classList.add("moveoutup");
     document.getElementById(newcard).classList.add("moveup");
+    currentcard = newcard;
 }
 
 function PreviousAnimation(oldcard, newcard) {
@@ -177,6 +181,7 @@ function PreviousAnimation(oldcard, newcard) {
     document.getElementById(newcard).classList = "card"
     document.getElementById(oldcard).classList.add("moveoutdown");
     document.getElementById(newcard).classList.add("movedown");
+    currentcard = newcard;
 }
 
 let lastKnownScrollPosition;
@@ -213,7 +218,7 @@ function BackClick() {
     }
 }
 function Redirect(destination) {
-    setTimeout(Collapse,200)
+    setTimeout(Collapse, 200)
     if (scrolling == false) {
         scrolling = true;
         setTimeout(ScrollFalse, 1800);
@@ -236,30 +241,61 @@ function Redirect(destination) {
             if (selected == null) {
                 ClickLeft();
             }
-            for (let index = i; index < 4; index++) {
-                NextCard();
-            }
+            document.getElementById(currentcard).classList = "card moveoutup";
+            document.getElementById("card4").classList = "card";
+            document.getElementById("card4").classList.add("moveup");
+            i = 4;
+            currentcard = "card4";
         }
     }
 }
-let items =document.getElementsByClassName("card");
+let items = document.getElementsByClassName("card");
 function SendHome() {
-    if (selected != null) {
-        for (let index = i; index > 0; index--) {
-            PreviousCard();
+    if (i == 1 && selected != null) {
+        PreviousCard();
+        return;
+    }
+    if (selected == "music") {
+        for (let index = 0; index < i - 1; index++) {
+            items[index].classList = "card disable";
         }
     }
+    else if (selected == "coding") {
+        for (let index = 4; index < i + 3; index++) {
+            items[index].classList = "card disable";
+        }
+    }
+    document.getElementById(currentcard).classList = "card";
+    document.getElementById(currentcard).classList.add("moveoutdown");
+    document.getElementById("bgright").classList = "smallcontainer";
+    document.getElementById("bgleft").classList = "smallcontainer";
+    document.getElementById("subtitle").innerHTML = "Music & Coding";
+    document.getElementById("head").classList = "";
+    document.getElementById("musiccard").classList = "homecard";
+    document.getElementById("codingcard").classList = "homecard";
+    document.getElementById("continueleft").classList = "continue";
+    document.getElementById("continueright").classList = "continue";
+    document.getElementById("arrowup").classList = "arrows";
+    document.getElementById("arrowdown").classList = "arrows";
+    // document.getElementById("codingcard1").classList = "card";
+    // document.getElementById("codingcard2").classList = "card";
+    // document.getElementById("codingcard3").classList = "card";
+    // document.getElementById("musiccard1").classList = "card";
+    // document.getElementById("musiccard2").classList = "card";
+    // document.getElementById("musiccard3").classList = "card";
+    selected = null;
+    i = 1;
 }
-
-function Expand(){
+function Expand() {
     if (document.getElementById("menuicon").classList == "open") {
-    document.getElementById("menuicon").classList ="";
-    return;
+        document.getElementById("menuicon").classList = "";
+        return;
     }
     document.getElementById("menuicon").classList.add("open");
     return;
 }
 
 function Collapse() {
-    document.getElementById("menuicon").classList ="";
+    document.getElementById("menuicon").classList = "";
 }
+
