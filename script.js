@@ -17,42 +17,46 @@ let selected = null;
 let scrolling = false;
 let currentcard = null;
 function ClickLeft() {
-    selected = "music";
-    document.getElementById("musiccard1").classList = "card";
-    document.getElementById("bgright").classList.add("unselected");
-    document.getElementById("bgleft").classList.add("selected");
-    document.getElementById("bgright").classList.add("nohover");
-    document.getElementById("bgleft").classList.add("nohover");
-    document.getElementById("subtitle").innerHTML = "Music";
-    document.getElementById("musiccard1").classList.add("firstmoveup");
-    document.getElementById("head").classList = "moveoutup";
-    document.getElementById("musiccard").classList.add("fadeout");
-    document.getElementById("continueleft").classList.add("fadeout");
-    document.getElementById("arrowup").classList.add("fadeinarrow");
-    // document.getElementById("contact").classList = "contactexit";
-    document.getElementById("arrowdown").classList.add("fadeinarrow");
-    currentcard = "musiccard1";
-    scrolling = true;
-    setTimeout(ScrollFalse, 3000);
+    if (scrolling == false) {
+        selected = "music";
+        document.getElementById("musiccard1").classList = "card";
+        document.getElementById("bgright").classList.add("unselected");
+        document.getElementById("bgleft").classList.add("selected");
+        document.getElementById("bgright").classList.add("nohover");
+        document.getElementById("bgleft").classList.add("nohover");
+        document.getElementById("subtitle").innerHTML = "Music";
+        document.getElementById("musiccard1").classList.add("firstmoveup");
+        document.getElementById("head").classList = "moveoutup";
+        document.getElementById("musiccard").classList.add("fadeout");
+        document.getElementById("continueleft").classList.add("fadeout");
+        document.getElementById("arrowup").classList.add("fadeinarrow");
+        // document.getElementById("contact").classList = "contactexit";
+        document.getElementById("arrowdown").classList.add("fadeinarrow");
+        currentcard = "musiccard1";
+        scrolling = true;
+        setTimeout(ScrollFalse, 3000);
+    }
 }
 function ClickRight() {
-    selected = "coding";
-    document.getElementById("codingcard1").classList = "card";
-    document.getElementById("bgleft").classList.add("unselected");
-    document.getElementById("bgright").classList.add("selected");
-    document.getElementById("bgright").classList.add("nohover");
-    document.getElementById("bgleft").classList.add("nohover");
-    document.getElementById("subtitle").innerHTML = "Coding & Design";
-    document.getElementById("codingcard1").classList.add("firstmoveup");
-    document.getElementById("head").classList = "moveoutup";
-    document.getElementById("codingcard").classList.add("fadeout");
-    document.getElementById("continueright").classList.add("fadeout");
-    document.getElementById("arrowup").classList.add("fadeinarrow");
-    // document.getElementById("contact").classList = "contactexit";
-    document.getElementById("arrowdown").classList.add("fadeinarrow");
-    scrolling = true;
-    currentcard = "codingcard1";
-    setTimeout(ScrollFalse, 3000);
+    if (scrolling == false) {
+        selected = "coding";
+        document.getElementById("codingcard1").classList = "card";
+        document.getElementById("bgleft").classList.add("unselected");
+        document.getElementById("bgright").classList.add("selected");
+        document.getElementById("bgright").classList.add("nohover");
+        document.getElementById("bgleft").classList.add("nohover");
+        document.getElementById("subtitle").innerHTML = "Coding & Design";
+        document.getElementById("codingcard1").classList.add("firstmoveup");
+        document.getElementById("head").classList = "moveoutup";
+        document.getElementById("codingcard").classList.add("fadeout");
+        document.getElementById("continueright").classList.add("fadeout");
+        document.getElementById("arrowup").classList.add("fadeinarrow");
+        // document.getElementById("contact").classList = "contactexit";
+        document.getElementById("arrowdown").classList.add("fadeinarrow");
+        scrolling = true;
+        currentcard = "codingcard1";
+        setTimeout(ScrollFalse, 3000);
+    }
 }
 let i = 1;
 function NextCard() {
@@ -116,6 +120,7 @@ function PreviousCard() {
                 document.getElementById("arrowup").classList = "arrows";
                 document.getElementById("arrowdown").classList = "arrows";
                 selected = null;
+                setTimeout(ScrollFalse, 2000);
                 i = 1;
                 break;
             case 2:
@@ -150,6 +155,7 @@ function PreviousCard() {
                 document.getElementById("arrowdown").classList = "arrows";
                 selected = null;
                 i = 1;
+                setTimeout(ScrollFalse, 2000);
                 break;
             case 2:
                 PreviousAnimation("codingcard2", "codingcard1");
@@ -221,36 +227,77 @@ function Redirect(destination) {
     setTimeout(Collapse, 200)
     if (scrolling == false) {
         scrolling = true;
-        setTimeout(ScrollFalse, 1800);
         if (destination == 'music') {
             SendHome();
             selected = destination;
             i = 1;
             ClickLeft();
+            setTimeout(ScrollFalse, 3000);
         }
         else if (destination == 'coding') {
             SendHome();
             selected = destination;
             i = 1;
             ClickRight();
+            setTimeout(ScrollFalse, 3000);
         }
         else if (destination == 'home') {
             SendHome();
+            setTimeout(ScrollFalse, 3000);
         }
         else if (destination == 'contact') {
+            setTimeout(ResetCardsUp, 1000);
             if (selected == null) {
-                ClickLeft();
+                selected = "music";
+                document.getElementById("bgright").classList.add("unselected");
+                document.getElementById("bgleft").classList.add("selected");
+                document.getElementById("bgright").classList.add("nohover");
+                document.getElementById("bgleft").classList.add("nohover");
+                document.getElementById("subtitle").innerHTML = "Music";
+                document.getElementById("head").classList = "moveoutup";
+                document.getElementById("musiccard").classList.add("fadeout");
+                document.getElementById("continueleft").classList.add("fadeout");
+                document.getElementById("arrowup").classList.add("fadeinarrow");
+                document.getElementById("arrowdown").classList.add("fadeinarrow");
+                document.getElementById("card4").classList = "card";
+                document.getElementById("card4").classList.add("moveup");
+                i = 4;
+                currentcard = "card4";
+                setTimeout(ScrollFalse, 3000);
             }
-            document.getElementById(currentcard).classList = "card moveoutup";
-            document.getElementById("card4").classList = "card";
-            document.getElementById("card4").classList.add("moveup");
-            i = 4;
-            currentcard = "card4";
+            else {
+                document.getElementById(currentcard).classList = "card moveoutup";
+                document.getElementById("card4").classList = "card";
+                document.getElementById("card4").classList.add("moveup");
+
+                i = 4;
+                currentcard = "card4";
+                setTimeout(ScrollFalse, 3000);
+            }
         }
     }
 }
+
+function ResetCardsUp() {
+    document.getElementById("codingcard1").classList = "card moveoutup disable";
+    document.getElementById("codingcard2").classList = "card moveoutup disable";
+    document.getElementById("codingcard3").classList = "card moveoutup disable";
+    document.getElementById("musiccard1").classList = "card moveoutup disable";
+    document.getElementById("musiccard2").classList = "card moveoutup disable";
+    document.getElementById("musiccard3").classList = "card moveoutup disable";
+}
+function ResetCardsDown() {
+    document.getElementById("codingcard1").classList = "card moveoutdown disable";
+    document.getElementById("codingcard2").classList = "card moveoutdown disable";
+    document.getElementById("codingcard3").classList = "card moveoutdown disable";
+    document.getElementById("musiccard1").classList = "card moveoutdown disable";
+    document.getElementById("musiccard2").classList = "card moveoutdown disable";
+    document.getElementById("musiccard3").classList = "card moveoutdown disable";
+
+}
 let items = document.getElementsByClassName("card");
 function SendHome() {
+    setTimeout(ResetCardsDown, 2000);
     if (i == 1 && selected != null) {
         PreviousCard();
         return;
@@ -277,12 +324,6 @@ function SendHome() {
     document.getElementById("continueright").classList = "continue";
     document.getElementById("arrowup").classList = "arrows";
     document.getElementById("arrowdown").classList = "arrows";
-    // document.getElementById("codingcard1").classList = "card";
-    // document.getElementById("codingcard2").classList = "card";
-    // document.getElementById("codingcard3").classList = "card";
-    // document.getElementById("musiccard1").classList = "card";
-    // document.getElementById("musiccard2").classList = "card";
-    // document.getElementById("musiccard3").classList = "card";
     selected = null;
     i = 1;
 }
