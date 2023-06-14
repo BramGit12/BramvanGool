@@ -9,7 +9,6 @@ html{
 }
 p,
 h2,
-.card h1,
 img {
     text-shadow: 4px 3px 0 #0000009a;
 }
@@ -52,20 +51,6 @@ body {
         url('assets/IMG_0293.jpeg') -270px;
     transition: 2500ms;
 
-}
-
-#contact {
-    width: 500px;
-    color: white;
-    position: absolute;
-    text-align: center;
-    margin: -250px;
-    left: 48.5%;
-    bottom: 30%;
-    transition-delay: 2s;
-    transition: 2000ms;
-    opacity: 0.7;
-    transform: translateY(0%);
 }
 
 #head {
@@ -169,23 +154,6 @@ body {
     word-spacing: 0;
 }
 
-#arrowup,#arrowdown{
-    opacity: 0;
-}
-#arrowdown :nth-child(1),
-#arrowup :nth-child(2) {
-    font-size: 1em;
-}
-
-#arrowup {
-    top: 1%;
-}
-
-#arrowdown {
-    bottom: 1%;
-} 
-
-
 .homecard {
     background-color: rgba(112, 1, 107, 0.918);
     border-radius: 10px;
@@ -244,86 +212,6 @@ body {
     height: 100dvh;
 }
 
-.card {
-    background-color: rgba(0, 0, 0, 0.877);
-    border-radius: 10px;
-    position:fixed;
-    height: 97%;
-    width: 97%;
-    max-width: 1500px;
-    transition: 2000ms;
-    transition-delay: 2s;
-    border: 1px solid rgb(177, 1, 168);
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.card div {
-    margin: 2%;
-    display: flex;
-    max-height: 100%;
-    margin-top: 1%;
-    flex-basis: 100%;
-    justify-content: center;
-}
-
-.card div div {
-    flex-direction: column;
-    margin-bottom: 0;
-    min-width: 40%;
-}
-
-#content :nth-child(2) div,
-#content :nth-child(6) div {
-    flex-direction: column;
-}
-
-#content :nth-child(2) div img,
-#content :nth-child(6) div img{
-    max-height: 75%;
-    max-width: 100%;
-}
-
-#content :nth-child(2) div p,
-#content :nth-child(2) div h1,#content :nth-child(6) div h1,#content :nth-child(6) div p {
-    text-align: center;
-}
-
-#content :nth-child(4) div h1 {
-    text-align: center;
-    margin-top: 1%;
-}
-
-#content :nth-child(4) div p {
-    margin: auto;
-    margin-left: 0;
-    text-align: start;
-}
-
-#content :nth-child(4) div {
-    justify-content: unset;
-}
-
-.card div h1 {
-    border-bottom: 1px solid rgb(177, 1, 168);
-    max-width: 100%;
-    margin: auto;
-    text-align: start;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    width: 100%;
-    color: rgb(255, 255, 255);
-}
-
-.card div p {
-    text-align: start;
-    width: 100%;
-    margin: auto;
-}
-
 h1 {
     font-size: 45px;
 }
@@ -365,37 +253,10 @@ img {
     overflow: unset;
 }
 
-.nohover {
-    pointer-events: none;
-}
-
-.firstmoveup {
-    transform: translateY(-100dvh);
-}
-
-.moveup {
-    transition-delay: 0.2s;
-    transform: translateY(-100dvh);
-}
-
 .moveoutup {
     transition-delay: 0.2s;
-    transform: translateY(-300dvh);
+    transform: translateY(-30dvh) !important;
     opacity: 0;
-}
-
-.movedown {
-    transition-delay: 0s;
-    transition: 0;
-    transform: translateY(-300dvh);
-    transition: 2000ms;
-    transition-delay: 0.2s;
-    transform: translateY(-100dvh);
-}
-
-.moveoutdown {
-    transition-delay: 0.2s;
-    transform: translateY(0);
 }
 
 .fadeout {
@@ -407,24 +268,6 @@ img {
 .fadein {
     opacity: 1;
     animation: Fade 1s ease 4s 1 normal forwards;
-}
-
-.fadeinarrow {
-    opacity: 0.6;
-    animation: FadeArrow 1s ease 4s 1 normal forwards;
-}
-
-.contactentry {
-    animation: SlideUp 1.3s ease 0s 1 normal forwards;
-}
-
-.contactexit {
-    transition-delay: 2s !important;
-    transform: translateY(-200%) !important;
-    opacity: 0 !important;
-}
-.disable{
-    transition: none !important;
 }
 
 @media screen and (min-width: 1500px) {
@@ -505,8 +348,8 @@ img {
     img{
         height: fit-content;
         max-height: 100%;
-    max-width: 40%;
-    width: max-content;
+        max-width: 40%;
+        width: max-content;
     }
     .deskimg{
         display: flex;
@@ -531,9 +374,6 @@ img {
     .logoentry {
         animation: SlideDown 1.3s ease 0s 1 normal forwards;
     }
-    .card{
-        height: 85%
-    }
     #menu{
         top:15dvh;
     }
@@ -549,17 +389,6 @@ img {
         opacity: 1;
     }
 }
-
-@keyframes FadeArrow {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.6;
-    }
-}
-
 @keyframes FadeOut {
     0% {
         opacity: 1;
@@ -592,17 +421,6 @@ img {
     }
 }
 
-@keyframes SlideUp {
-
-    0%,
-    60% {
-        transform: translateY(160%);
-    }
-
-    100% {
-        transform: translateY(0%);
-    }
-}
 
 @keyframes FadeBounce {
     0% {
