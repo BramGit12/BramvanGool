@@ -270,6 +270,10 @@ img {
     animation: Fade 1s ease 4s 1 normal forwards;
 }
 
+.nohover{
+    pointer-events: none;
+}
+
 @media screen and (min-width: 1500px) {
 
     #bgleft {
