@@ -12,6 +12,9 @@ h2,
 img {
     text-shadow: 4px 3px 0 #0000009a;
 }
+svg{
+    transform: scale(2.5);
+}
 
 body {
     background-color: black;
@@ -68,8 +71,8 @@ body {
 }
 
 #menu {
-    position: absolute;
-    top: 60dvh;
+    position: fixed;
+    top: 0dvh;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -207,10 +210,20 @@ body {
     margin: auto;
     max-width: 1200px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50dvh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
+.content div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 50%;
+    min-height: 85dvh;
+    text-align: center;
+}
+
 
 h1 {
     font-size: 45px;
@@ -282,7 +295,24 @@ img {
 }
 #contact
 {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex-basis: 50%;
+    min-height: 85dvh;
+    text-align: center;
+}
+.socials{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+#contact h1,
+#contact p,
+#contact div
+{
+    margin: 2%;
 }
 .dnone{
     display: none;
