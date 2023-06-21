@@ -10,6 +10,8 @@ function ClickLeft() {
     document.getElementById("subtitle").innerHTML = "Music";
     document.getElementById("musiccard").classList.add("fadeout");
     document.getElementById("continueleft").classList.add("fadeout");
+    document.getElementById("coding").classList.add("dnone");
+    document.getElementById("music").classList.remove("dnone");
     Continue();
     setTimeout(Scroll, 2000);
 }
@@ -20,6 +22,8 @@ function ClickRight() {
     document.getElementById("subtitle").innerHTML = "Coding & Design";
     document.getElementById("codingcard").classList.add("fadeout");
     document.getElementById("continueright").classList.add("fadeout");
+    document.getElementById("music").classList.add("dnone");
+    document.getElementById("coding").classList.remove("dnone");
     Continue();
     setTimeout(Scroll, 2000);
 }
