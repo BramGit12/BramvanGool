@@ -202,14 +202,13 @@ body {
     right: 13%;
 }
 
-#content {
+.content {
     color: #ffffff;
     margin: unset;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
 }
 
 h1 {
@@ -250,7 +249,7 @@ img {
 }
 
 .scroll {
-    overflow: unset;
+    overflow: unset !important;
 }
 
 .moveoutup {
@@ -272,6 +271,16 @@ img {
 
 .nohover{
     pointer-events: none;
+}
+
+#music{
+
+}
+#coding{
+
+}
+.content div{
+    width: 70%;
 }
 
 @media screen and (min-width: 1500px) {

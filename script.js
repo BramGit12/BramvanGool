@@ -1,39 +1,37 @@
-// window.onload = OnLoad;
-// function OnLoad() {
-//     setTimeout(RemoveClass, 2600);
-// }
-
-// function RemoveClass() {
-//     if (document.getElementById("head").classList == "moveoutup") {
-//         document.getElementById("head").classList = "moveoutup";
-//         return;
-//     }
-//     document.getElementById("head").classList = "";
-// }
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
 
 let selected = null;
 function ClickLeft() {
     selected = "music";
     document.getElementById("bgright").classList.add("unselected");
-    document.getElementById("bgright").classList.add("nohover");
     document.getElementById("bgleft").classList.add("selected");
-    document.getElementById("bgleft").classList.add("nohover");
     document.getElementById("subtitle").innerHTML = "Music";
-    // document.getElementById("head").classList = "moveoutup";
     document.getElementById("musiccard").classList.add("fadeout");
     document.getElementById("continueleft").classList.add("fadeout");
-
+    Continue();
+    setTimeout(Scroll, 2000);
 }
 function ClickRight() {
     selected = "coding";
     document.getElementById("bgleft").classList.add("unselected");
-    document.getElementById("bgright").classList.add("nohover");
     document.getElementById("bgleft").classList.add("unselected");
-    document.getElementById("bgright").classList.add("nohover");
     document.getElementById("subtitle").innerHTML = "Coding & Design";
-    // document.getElementById("head").classList = "moveoutup";
     document.getElementById("codingcard").classList.add("fadeout");
     document.getElementById("continueright").classList.add("fadeout");
+    Continue();
+    setTimeout(Scroll, 2000);
+}
+
+function Scroll(){
+    window.scrollTo({ top: screen.height, behavior: 'smooth' });
+}
+
+function Continue() {
+    document.getElementById("bgleft").classList.add("nohover");
+    document.getElementById("bgright").classList.add("nohover");
+    document.getElementById("html").classList = "scroll";
 }
 function Expand() {
     if (document.getElementById("menuicon").classList == "open") {
