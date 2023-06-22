@@ -29,7 +29,8 @@ function ClickRight() {
 }
 
 function Scroll(){
-    window.scrollTo({ top: screen.height*0.85, behavior: 'smooth' });
+    window.scrollTo({ top: screen.height*0.9
+        , behavior: 'smooth' });
 }
 
 function Continue() {

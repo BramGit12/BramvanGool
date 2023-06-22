@@ -67,7 +67,7 @@ body {
     transform: translateY(-2dvh);
 }
 #head p {
-    animation: Pulse 1.3s ease 1.3s 1 normal forwards;
+    /* animation: Pulse 1.3s ease 1.3s 1 normal forwards; */
 }
 
 #menu {
@@ -208,22 +208,24 @@ body {
 .content {
     color: #ffffff;
     margin: auto;
-    max-width: 1200px;
+    max-width: 1500px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 2%;
     margin-bottom: 2%;
+    padding: 2%;
 }
 .content div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-basis: 50%;
-    min-height: 85dvh;
+    max-height: 80dvh;
     text-align: center;
+    min-width: 400px;
+    flex-grow: 1;
 }
-
 
 h1 {
     font-size: 45px;
@@ -241,10 +243,8 @@ p {
 img {
     border-radius: 10px;
     margin: auto !important;
-    max-height: 50%;
-    max-width: max-content;
-    display: flex;
-    flex-shrink: 2;
+    max-width: 90%;
+    max-height: 80%;
 }
 
 .deskimg{
@@ -255,11 +255,13 @@ img {
 }
 
 .unselected {
-    opacity: 0;
+    flex-grow: 0;
+    opacity: 1;
 }
 
 .selected {
-    opacity: 0;
+    flex-grow: 10;
+    opacity: 1;
 }
 
 .scroll {
@@ -382,22 +384,12 @@ img {
         transform: scale(1.03);
         opacity: 1;
     }
-    #bgright:hover .continue {
-        display: inline;
-        animation: FadeBounce 4s ease 0s 1 normal forwards;
-    }
-    #bgleft:hover .continue {
+    #bgright:hover .continue, #bgleft:hover .continue {
         display: inline;
         animation: FadeBounce 4s ease 0s 1 normal forwards;
     }
     .homecard, .continue{
     display: inline;
-    }
-    img{
-        height: fit-content;
-        max-height: 100%;
-        max-width: 40%;
-        width: max-content;
     }
     .deskimg{
         display: flex;
@@ -405,25 +397,19 @@ img {
     .mobileimg{
         display: none;
     }
-    .unselected {
-        flex-grow: 0;
-        opacity: 1;
-    }
-    
-    .selected {
-        flex-grow: 10;
-        opacity: 1;
-    }
     #head{
     margin-top: 0.7%;
     align-self: unset;
     transform: translateY(0);
     }
     .logoentry {
-        animation: SlideDown 1.3s ease 0s 1 normal forwards;
+        /* animation: SlideDown 1.3s ease 0s 1 normal forwards; */
     }
     #menu{
         top:15dvh;
+    }
+    .content div{
+    min-height: 85dvh;
     }
 }
 
