@@ -12,10 +12,9 @@ h2,
 img {
     text-shadow: 4px 3px 0 #0000009a;
 }
-svg{
-    transform: scale(2.5);
+a:hover{
+    color: rgb(177, 1, 168);
 }
-
 body {
     background-color: black;
     /* overflow: hidden; */
@@ -31,12 +30,13 @@ body {
 
 .smallcontainer {
     flex-grow: 1;
-    height: 100dvh;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-    position: sticky;
     cursor: pointer;
     opacity: 0.7;
+    flex-wrap: 1;
+    min-width: 400px;
+    height: 50vh;
 }
 
 #bgright {
@@ -51,7 +51,7 @@ body {
     background: linear-gradient(rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0) 24%),
         linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%),
         linear-gradient(270deg, rgb(0, 0, 0) 5%, rgba(255, 255, 255, 0) 24%),
-        url('assets/IMG_0293.jpeg') -270px;
+        url('assets/IMG_0293.jpeg') 40%;
     transition: 1000ms;
 
 }
@@ -64,7 +64,7 @@ body {
     transition: 1000ms;
     transition-delay: 2s;
     align-self: center;
-    transform: translateY(-2dvh);
+    transform: translateY(-2vh);
 }
 #head p {
     /* animation: Pulse 1.3s ease 1.3s 1 normal forwards; */
@@ -72,7 +72,7 @@ body {
 
 #menu {
     position: fixed;
-    top: 0dvh;
+    top: 0vh;
     right: 0;
     display: flex;
     flex-direction: column;
@@ -208,7 +208,7 @@ body {
 .content {
     color: #ffffff;
     margin: auto;
-    max-width: 1500px;
+    /* max-width: 1500px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -221,14 +221,20 @@ body {
     flex-direction: column;
     justify-content: center;
     flex-basis: 50%;
-    max-height: 80dvh;
+    height: 85vh;
     text-align: center;
-    min-width: 400px;
+    min-width: 100%;
     flex-grow: 1;
+}
+
+.textblock div{
+    /* background-color: rgba(255, 255, 255, 0.068); */
+    border-radius: 10px;
 }
 
 h1 {
     font-size: 45px;
+    color:rgb(177, 1, 168);
 }
 
 h2 {
@@ -255,6 +261,7 @@ img {
 }
 
 .unselected {
+    min-width: 0 !important;
     flex-grow: 0;
     opacity: 1;
 }
@@ -270,7 +277,7 @@ img {
 
 .moveoutup {
     transition-delay: 0.2s;
-    transform: translateY(-30dvh) !important;
+    transform: translateY(-30vh) !important;
     opacity: 0;
 }
 
@@ -289,19 +296,13 @@ img {
     pointer-events: none;
 }
 
-#music{
-
-}
-#coding{
-
-}
 #contact
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-basis: 50%;
-    min-height: 85dvh;
+    min-height: 85vh;
     text-align: center;
 }
 .socials{
@@ -309,17 +310,24 @@ img {
     flex-direction: row;
     width: 100%;
     justify-content: center;
+    margin: 0 !important;
+    text-align: center;
+}
+.socials a{
+    margin: 1%;
 }
 #contact h1,
 #contact p,
 #contact div
 {
     margin: 2%;
+    text-align: center;
+    justify-content: center;
 }
 .dnone{
     display: none;
 }
-
+/* 
 @media screen and (min-width: 1500px) {
 
     #bgleft {
@@ -351,19 +359,17 @@ img {
 }
 
 @media screen and (max-width: 480px) and (max-width: 479px) {
-    .smallcontainer {
-        flex-basis: 100%;
-        flex-wrap: 1;
-        height: 50dvh;
-    }
-
     #bgleft {
         background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%),
             linear-gradient(0deg, rgba(0, 0, 0, 1) 6%, rgba(255, 255, 255, 0) 35%), linear-gradient(270deg, rgba(0, 0, 0, 1) 5%, rgba(255, 255, 255, 0) 24%), url('assets/IMG_0293.jpeg')30%;
     }
-}
+} */
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 800px) {
+    .smallcontainer
+    {
+        height: 100dvh;
+    }
     #bgleft:hover #musiccard {
         display: inline;
         animation: Fade 1s ease 0s 1 normal forwards;
@@ -406,10 +412,10 @@ img {
         /* animation: SlideDown 1.3s ease 0s 1 normal forwards; */
     }
     #menu{
-        top:15dvh;
+        top:15vh;
     }
     .content div{
-    min-height: 85dvh;
+    min-width: 500px !important;
     }
 }
 
